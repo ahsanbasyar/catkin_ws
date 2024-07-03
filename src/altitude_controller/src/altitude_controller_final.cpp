@@ -92,7 +92,7 @@ public:
         vel_pub.publish(vel_msg);
 
         ROS_INFO("Current Altitude: %f, Command: %f", current_altitude, cmd);
-        printf("Er at Z is (%f) \n", height_error);
+        printf("Erorr at Z is (%f) \n", height_error);
         error_pub.publish(error_msg);
     }
     void setpointCallback(const std_msgs::Float32::ConstPtr &msg) {
