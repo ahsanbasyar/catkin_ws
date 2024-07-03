@@ -1,0 +1,8 @@
+prefix=/home/ahsanbasyar/catkin_ws/install
+
+Name: drone_controller
+Description: Description of drone_controller
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -ldrone_controller
+Requires: geometry_msgs mavros_msgs message_runtime roscpp rospy std_msgs

@@ -1,0 +1,8 @@
+prefix=/home/ahsanbasyar/catkin_ws/install
+
+Name: mavros_off_board
+Description: Description of mavros_off_board
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs mavros_msgs roscpp rospy std_msgs

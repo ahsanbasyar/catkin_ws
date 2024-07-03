@@ -1,0 +1,8 @@
+prefix=/home/ahsanbasyar/catkin_ws/devel
+
+Name: altitude_controller
+Description: Description of altitude_controller
+Version: 0.0.0
+Cflags: -I/home/ahsanbasyar/catkin_ws/devel/include -I/home/ahsanbasyar/catkin_ws/src/altitude_controller/include
+Libs: -L${prefix}/lib -laltitude_controller
+Requires: geometry_msgs mavros_msgs roscpp rospy std_msgs message_generation

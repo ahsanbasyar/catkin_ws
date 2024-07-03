@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ahsanbasyar/catkin_ws/src/drone_controller/include/drone_controller/pid.h
+
+/home/ahsanbasyar/catkin_ws/src/drone_controller/src/pid.cpp
+iostream
+-
+cmath
+-
+drone_controller/pid.h
+/home/ahsanbasyar/catkin_ws/src/drone_controller/src/drone_controller/pid.h
+

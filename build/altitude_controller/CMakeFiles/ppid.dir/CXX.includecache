@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ahsanbasyar/catkin_ws/src/altitude_controller/include/altitude_controller/ppid.h
+
+/home/ahsanbasyar/catkin_ws/src/altitude_controller/src/altitude_pid.cpp
+iostream
+-
+cmath
+-
+altitude_controller/ppid.h
+/home/ahsanbasyar/catkin_ws/src/altitude_controller/src/altitude_controller/ppid.h
+
