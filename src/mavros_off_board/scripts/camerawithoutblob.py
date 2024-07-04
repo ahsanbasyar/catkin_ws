@@ -10,36 +10,9 @@ from sensor_msgs.msg import Image
 import sqlite3
 from sqlite3 import Error
 from datetime import datetime
-import PIL.Image as Image
-import io
-import mysql.connector
-
-MyDB = mysql.connector.connect(
-    host = "localhost",
-    user = "ahsanbasyar",
-    password = "Ahsanbsyr1!",
-    database = "Tutorial"
-)
-
-MyCursor = MyDB.cursor()
-
-
-
-print("1. Insert Image\n2. Read Image")
-MenuInput = input()
-if int(MenuInput) == 1:
-    UserFilePath = input("Enter File Path:")
-    InsertBlob(UserFilePath)
-elif int(MenuInput) == 2:
-    UserIDChoice = input("Enter ID:")
-    RetrieveBlob(UserIDChoice)
+import os  # Import the os module
 
 class Drone:
-
-
-
-
-
 
     def __init__(self):
         rospy.init_node("CV")
@@ -50,9 +23,8 @@ class Drone:
 
     def callback_rgb(self, data):
         img = self.bridge.imgmsg_to_cv2(data, "bgr8")
-        cpt = self.bridge.imgmsg_to_cv2(data, "bgr8")
         self.imageshow_rgb = img
-        self.capture = cpt
+        self.capture = img  # Corrected to use img instead of cpt
 
     def show_image(self):
         cv2.imshow("rgb", self.imageshow_rgb)
@@ -66,8 +38,6 @@ class Drone:
 
         aruco_dict = aruco.Dictionary_get(aruco.DICT_ARUCO_ORIGINAL)
         parameters = aruco.DetectorParameters_create()
-
-        font = cv2.FONT_HERSHEY_PLAIN
 
         counterbase = 1
         countermove = 1
@@ -110,7 +80,7 @@ class Drone:
                     image_name = f"/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/{category}({ids[0]})_{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.jpg"
                     print(f'Image copied to {image_name}')
                     cv2.imwrite(image_name, self.capture)
-                    self.save_to_database(image_name, category)
+                    self.insert_to_database(image_name, category)
                     counterbase += 1 if key == ord('1') else 1
 
                 elif key == ord('q'):
@@ -120,9 +90,8 @@ class Drone:
 
             except rospy.exceptions.ROSTimeMovedBackwardsException:
                 pass
-            
 
-    def create_connection(db_file):
+    def create_connection(self, db_file):
         conn = None
         try:
             conn = sqlite3.connect(db_file)
@@ -131,59 +100,67 @@ class Drone:
             print(e)
         return conn
     
-    def create_table(conn, create_table_sql):
+    def create_table(self, conn, create_table_sql):
         try:
             c = conn.cursor()
             c.execute(create_table_sql)
-            c.close()
         except Error as e:
             print(e)
-        return c
-    def convertToBinaryData(filename): #this uses opencv functions to read image , imencode to encode to a jpg format
-        image = cv2.imread(filename)
-        is_success, im_buf_arr = cv2.imencode(".jpg",image)
-        byte_im = im_buf_arr.tobytes()
-        return byte_im
-    
-    def insertBLOB(empid,name,path,db):
-        try:
-            sqlite_insert_blob_query = """INSERT INTO images (id,name,photo) VALUES (?,?,?)"""
-            empphoto = convertToBinaryData(path)
-            data_tuple = (empid,name,empphoto)
-            cursor = db.cursor()
-            cursor.execute(sqlite_insert_blob_query,data_tuple)
-            db.commit()
-            cursor.close()
-            return True
-        except sqlite3.Error as error:
-            return False
 
-
-    
-    def insert_DB(db_file):
+    def convertToBinaryData(self, filename):
         try:
-            sql_create_projects_table = ('''CREATE TABLE IF NOT EXISTS images
-                                        (id INTEGER PRIMARY KEY AUTOINCREMENT,
+            with open(filename, 'rb') as file:
+                blobData = file.read()
+            return blobData
+        except IOError as e:
+            print(e)
+            return None
+
+    def insert_image(self, conn, image_path, category):
+        try:
+            sql = ''' INSERT INTO images(image_path, category, timestamp)
+                      VALUES(?,?,?) '''
+            cur = conn.cursor()
+            cur.execute(sql, (image_path, category, datetime.now()))
+            conn.commit()
+            cur.close()
+            return cur.lastrowid
+        except Error as e:
+            print(e)
+            return None
+
+    def initialize_database(self, db_file):
+        try:
+            conn = self.create_connection(db_file)
+            sql_create_table = """ CREATE TABLE IF NOT EXISTS images (
+                                        id INTEGER PRIMARY KEY AUTOINCREMENT,
                                         image_path TEXT NOT NULL,
                                         category TEXT NOT NULL,
-                                        timestamp DATETIME NOT NULL)''')
-            db = create_connection(db_file)
-
-            if db is not None:
-                create_table(db, sql_create_projects_table)
-                if (not (insertBLOB(1,'manoj',image_path,db))):
-                   raise Exception("error inserting")
+                                        timestamp DATETIME NOT NULL
+                                    ); """
+            if conn is not None:
+                self.create_table(conn, sql_create_table)
             else:
-                print("ERROR! CANNOT CREATE THE DATABASE CONNECTION")
-        except sqlite3.Error as error:
-            print("/n error while connecting to sqlite",error)
-
+                print("Error! Cannot create the database connection.")
+        except Error as e:
+            print(e)
         finally:
-            if(db):
-                db.close()
-                print("/n db is closed now")
+            if conn:
+                conn.close()
 
-    
+    def insert_to_database(self, image_path, category, db_file="/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/images.db"):
+        try:
+            conn = self.create_connection(db_file)
+            if conn is not None:
+                self.insert_image(conn, image_path, category)
+            else:
+                print("Error! Cannot create the database connection.")
+        except Error as e:
+            print(e)
+        finally:
+            if conn:
+                conn.close()
+
 
 if __name__ == "__main__":
     drone = Drone()
