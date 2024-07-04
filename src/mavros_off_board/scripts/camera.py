@@ -8,13 +8,43 @@ from cv_bridge import CvBridge, CvBridgeError
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 import sqlite3
+from sqlite3 import Error
 from datetime import datetime
+import PIL.Image as Image
+import io
+import mysql.connector
+
+MyDB = mysql.connector.connect(
+    host = "localhost",
+    user = "ahsanbasyar",
+    password = "Ahsanbsyr1!",
+    database = "Tutorial"
+)
+
+MyCursor = MyDB.cursor()
+
+
+
+print("1. Insert Image\n2. Read Image")
+MenuInput = input()
+if int(MenuInput) == 1:
+    UserFilePath = input("Enter File Path:")
+    InsertBlob(UserFilePath)
+elif int(MenuInput) == 2:
+    UserIDChoice = input("Enter ID:")
+    RetrieveBlob(UserIDChoice)
 
 class Drone:
+
+
+
+
+
+
     def __init__(self):
         rospy.init_node("CV")
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber("iris/usb_cam/image_raw", Image, self.callback_rgb)
+        self.image_sub = rospy.Subscriber("/quad_f450_camera/camera_link/raw_image", Image, self.callback_rgb)
         self.imageshow_rgb = np.zeros((640, 480, 3), dtype=np.uint8)
         self.capture = None
 
@@ -77,7 +107,7 @@ class Drone:
 
                 if key == ord('1') or key == ord('2'):
                     category = 'base' if key == ord('1') else 'move'
-                    image_name = f"images/data/{category}{counterbase}.jpg"
+                    image_name = f"/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/{category}({ids[0]})_{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.jpg"
                     print(f'Image copied to {image_name}')
                     cv2.imwrite(image_name, self.capture)
                     self.save_to_database(image_name, category)
@@ -90,14 +120,70 @@ class Drone:
 
             except rospy.exceptions.ROSTimeMovedBackwardsException:
                 pass
+            
 
-    def save_to_database(self, image_path, category):
-        conn = sqlite3.connect('image_history.db')
-        c = conn.cursor()
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-        c.execute("INSERT INTO images (image_path, category, timestamp) VALUES (?, ?, ?)", (image_path, category, timestamp))
-        conn.commit()
-        conn.close()
+    def create_connection(db_file):
+        conn = None
+        try:
+            conn = sqlite3.connect(db_file)
+            return conn
+        except Error as e:
+            print(e)
+        return conn
+    
+    def create_table(conn, create_table_sql):
+        try:
+            c = conn.cursor()
+            c.execute(create_table_sql)
+            c.close()
+        except Error as e:
+            print(e)
+        return c
+    def convertToBinaryData(filename): #this uses opencv functions to read image , imencode to encode to a jpg format
+        image = cv2.imread(filename)
+        is_success, im_buf_arr = cv2.imencode(".jpg",image)
+        byte_im = im_buf_arr.tobytes()
+        return byte_im
+    
+    def insertBLOB(empid,name,path,db):
+        try:
+            sqlite_insert_blob_query = """INSERT INTO images (id,name,photo) VALUES (?,?,?)"""
+            empphoto = convertToBinaryData(path)
+            data_tuple = (empid,name,empphoto)
+            cursor = db.cursor()
+            cursor.execute(sqlite_insert_blob_query,data_tuple)
+            db.commit()
+            cursor.close()
+            return True
+        except sqlite3.Error as error:
+            return False
+
+
+    
+    def insert_DB(db_file):
+        try:
+            sql_create_projects_table = ('''CREATE TABLE IF NOT EXISTS images
+                                        (id INTEGER PRIMARY KEY AUTOINCREMENT,
+                                        image_path TEXT NOT NULL,
+                                        category TEXT NOT NULL,
+                                        timestamp DATETIME NOT NULL)''')
+            db = create_connection(db_file)
+
+            if db is not None:
+                create_table(db, sql_create_projects_table)
+                if (not (insertBLOB(1,'manoj',image_path,db))):
+                   raise Exception("error inserting")
+            else:
+                print("ERROR! CANNOT CREATE THE DATABASE CONNECTION")
+        except sqlite3.Error as error:
+            print("/n error while connecting to sqlite",error)
+
+        finally:
+            if(db):
+                db.close()
+                print("/n db is closed now")
+
+    
 
 if __name__ == "__main__":
     drone = Drone()
