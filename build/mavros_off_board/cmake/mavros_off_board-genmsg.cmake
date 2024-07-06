@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "mavros_off_board: 1 messages, 0 services")
+message(STATUS "mavros_off_board: 2 messages, 0 services")
 
 set(MSG_I_FLAGS "-Imavros_off_board:/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_mavros_off_board_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mavros_off_board" "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg" ""
 )
 
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" NAME_WE)
+add_custom_target(_mavros_off_board_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "mavros_off_board" "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -30,6 +35,12 @@ add_custom_target(_mavros_off_board_generate_messages_check_deps_${_filename}
 ### Generating Messages
 _generate_msg_cpp(mavros_off_board
   "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mavros_off_board
+)
+_generate_msg_cpp(mavros_off_board
+  "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/mavros_off_board
@@ -51,6 +62,8 @@ add_dependencies(mavros_off_board_generate_messages mavros_off_board_generate_me
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg" NAME_WE)
 add_dependencies(mavros_off_board_generate_messages_cpp _mavros_off_board_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" NAME_WE)
+add_dependencies(mavros_off_board_generate_messages_cpp _mavros_off_board_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mavros_off_board_gencpp)
@@ -63,6 +76,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mavros_off_board_generate_messages_
 ### Generating Messages
 _generate_msg_eus(mavros_off_board
   "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mavros_off_board
+)
+_generate_msg_eus(mavros_off_board
+  "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/mavros_off_board
@@ -84,6 +103,8 @@ add_dependencies(mavros_off_board_generate_messages mavros_off_board_generate_me
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg" NAME_WE)
 add_dependencies(mavros_off_board_generate_messages_eus _mavros_off_board_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" NAME_WE)
+add_dependencies(mavros_off_board_generate_messages_eus _mavros_off_board_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mavros_off_board_geneus)
@@ -96,6 +117,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mavros_off_board_generate_messages_
 ### Generating Messages
 _generate_msg_lisp(mavros_off_board
   "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mavros_off_board
+)
+_generate_msg_lisp(mavros_off_board
+  "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/mavros_off_board
@@ -117,6 +144,8 @@ add_dependencies(mavros_off_board_generate_messages mavros_off_board_generate_me
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg" NAME_WE)
 add_dependencies(mavros_off_board_generate_messages_lisp _mavros_off_board_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" NAME_WE)
+add_dependencies(mavros_off_board_generate_messages_lisp _mavros_off_board_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mavros_off_board_genlisp)
@@ -129,6 +158,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mavros_off_board_generate_messages_
 ### Generating Messages
 _generate_msg_nodejs(mavros_off_board
   "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mavros_off_board
+)
+_generate_msg_nodejs(mavros_off_board
+  "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/mavros_off_board
@@ -150,6 +185,8 @@ add_dependencies(mavros_off_board_generate_messages mavros_off_board_generate_me
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg" NAME_WE)
 add_dependencies(mavros_off_board_generate_messages_nodejs _mavros_off_board_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" NAME_WE)
+add_dependencies(mavros_off_board_generate_messages_nodejs _mavros_off_board_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(mavros_off_board_gennodejs)
@@ -162,6 +199,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS mavros_off_board_generate_messages_
 ### Generating Messages
 _generate_msg_py(mavros_off_board
   "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mavros_off_board
+)
+_generate_msg_py(mavros_off_board
+  "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/mavros_off_board
@@ -182,6 +225,8 @@ add_dependencies(mavros_off_board_generate_messages mavros_off_board_generate_me
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg" NAME_WE)
+add_dependencies(mavros_off_board_generate_messages_py _mavros_off_board_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg" NAME_WE)
 add_dependencies(mavros_off_board_generate_messages_py _mavros_off_board_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

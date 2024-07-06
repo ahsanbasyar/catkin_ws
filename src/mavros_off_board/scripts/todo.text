@@ -1,4 +1,5 @@
-
+git commit -m "SUCCESS CAMERA CONTROLLER"
+git push catkin_ws master
 
 1. Run waypoint
 2. Run camera
@@ -9,3 +10,9 @@ pertanyaannya
 bisa ga dalam 1 file waypoint, nantinya akan run camera, controller dan if else tidak ada patok, lalu kirim homepos
 
 *controller ada roslaunch terpisah dan akan diselipkan pada program waypoint
+
+notes todo
+
+ubah code cpp to python
+menyatukan code
+aplikasi android

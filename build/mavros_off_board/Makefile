@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+mavros_off_board/CMakeFiles/cent_calculator.dir/rule:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mavros_off_board/CMakeFiles/cent_calculator.dir/rule
+.PHONY : mavros_off_board/CMakeFiles/cent_calculator.dir/rule
+
+# Convenience name for target.
+cent_calculator: mavros_off_board/CMakeFiles/cent_calculator.dir/rule
+
+.PHONY : cent_calculator
+
+# fast build rule for target.
+cent_calculator/fast:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f mavros_off_board/CMakeFiles/cent_calculator.dir/build.make mavros_off_board/CMakeFiles/cent_calculator.dir/build
+.PHONY : cent_calculator/fast
+
+# Convenience name for target.
 mavros_off_board/CMakeFiles/path.dir/rule:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mavros_off_board/CMakeFiles/path.dir/rule
 .PHONY : mavros_off_board/CMakeFiles/path.dir/rule
@@ -918,6 +933,21 @@ visualization_msgs_generate_messages_py/fast:
 .PHONY : visualization_msgs_generate_messages_py/fast
 
 # Convenience name for target.
+mavros_off_board/CMakeFiles/_mavros_off_board_generate_messages_check_deps_States.dir/rule:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mavros_off_board/CMakeFiles/_mavros_off_board_generate_messages_check_deps_States.dir/rule
+.PHONY : mavros_off_board/CMakeFiles/_mavros_off_board_generate_messages_check_deps_States.dir/rule
+
+# Convenience name for target.
+_mavros_off_board_generate_messages_check_deps_States: mavros_off_board/CMakeFiles/_mavros_off_board_generate_messages_check_deps_States.dir/rule
+
+.PHONY : _mavros_off_board_generate_messages_check_deps_States
+
+# fast build rule for target.
+_mavros_off_board_generate_messages_check_deps_States/fast:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f mavros_off_board/CMakeFiles/_mavros_off_board_generate_messages_check_deps_States.dir/build.make mavros_off_board/CMakeFiles/_mavros_off_board_generate_messages_check_deps_States.dir/build
+.PHONY : _mavros_off_board_generate_messages_check_deps_States/fast
+
+# Convenience name for target.
 mavros_off_board/CMakeFiles/tf_generate_messages_cpp.dir/rule:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 mavros_off_board/CMakeFiles/tf_generate_messages_cpp.dir/rule
 .PHONY : mavros_off_board/CMakeFiles/tf_generate_messages_cpp.dir/rule
@@ -1157,6 +1187,33 @@ mavros_off_board_gencpp/fast:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f mavros_off_board/CMakeFiles/mavros_off_board_gencpp.dir/build.make mavros_off_board/CMakeFiles/mavros_off_board_gencpp.dir/build
 .PHONY : mavros_off_board_gencpp/fast
 
+src/cent_calculator.o: src/cent_calculator.cpp.o
+
+.PHONY : src/cent_calculator.o
+
+# target to build an object file
+src/cent_calculator.cpp.o:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f mavros_off_board/CMakeFiles/cent_calculator.dir/build.make mavros_off_board/CMakeFiles/cent_calculator.dir/src/cent_calculator.cpp.o
+.PHONY : src/cent_calculator.cpp.o
+
+src/cent_calculator.i: src/cent_calculator.cpp.i
+
+.PHONY : src/cent_calculator.i
+
+# target to preprocess a source file
+src/cent_calculator.cpp.i:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f mavros_off_board/CMakeFiles/cent_calculator.dir/build.make mavros_off_board/CMakeFiles/cent_calculator.dir/src/cent_calculator.cpp.i
+.PHONY : src/cent_calculator.cpp.i
+
+src/cent_calculator.s: src/cent_calculator.cpp.s
+
+.PHONY : src/cent_calculator.s
+
+# target to generate assembly for a file
+src/cent_calculator.cpp.s:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f mavros_off_board/CMakeFiles/cent_calculator.dir/build.make mavros_off_board/CMakeFiles/cent_calculator.dir/src/cent_calculator.cpp.s
+.PHONY : src/cent_calculator.cpp.s
+
 src/offb_node.o: src/offb_node.cpp.o
 
 .PHONY : src/offb_node.o
@@ -1249,6 +1306,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
+	@echo "... cent_calculator"
 	@echo "... path"
 	@echo "... offb_node"
 	@echo "... mavros_off_board_generate_messages_py"
@@ -1299,6 +1357,7 @@ help:
 	@echo "... visualization_msgs_generate_messages_lisp"
 	@echo "... visualization_msgs_generate_messages_nodejs"
 	@echo "... visualization_msgs_generate_messages_py"
+	@echo "... _mavros_off_board_generate_messages_check_deps_States"
 	@echo "... tf_generate_messages_cpp"
 	@echo "... map_msgs_generate_messages_cpp"
 	@echo "... tf_generate_messages_nodejs"
@@ -1317,6 +1376,9 @@ help:
 	@echo "... mavros_off_board_generate_messages_cpp"
 	@echo "... rviz_generate_messages_nodejs"
 	@echo "... mavros_off_board_gencpp"
+	@echo "... src/cent_calculator.o"
+	@echo "... src/cent_calculator.i"
+	@echo "... src/cent_calculator.s"
 	@echo "... src/offb_node.o"
 	@echo "... src/offb_node.i"
 	@echo "... src/offb_node.s"

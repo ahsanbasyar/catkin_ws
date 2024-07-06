@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/ahsanbasyar/catkin_ws/build
 include mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_nodejs.dir/progress.make
 
 mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_nodejs: /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/Corners.js
+mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_nodejs: /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/States.js
 
 
 /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/Corners.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -61,8 +62,14 @@ mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_nodejs: /home/ahs
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from mavros_off_board/Corners.msg"
 	cd /home/ahsanbasyar/catkin_ws/build/mavros_off_board && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg -Imavros_off_board:/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p mavros_off_board -o /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg
 
+/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/States.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/States.js: /home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from mavros_off_board/States.msg"
+	cd /home/ahsanbasyar/catkin_ws/build/mavros_off_board && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg -Imavros_off_board:/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p mavros_off_board -o /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg
+
 mavros_off_board_generate_messages_nodejs: mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_nodejs
 mavros_off_board_generate_messages_nodejs: /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/Corners.js
+mavros_off_board_generate_messages_nodejs: /home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/mavros_off_board/msg/States.js
 mavros_off_board_generate_messages_nodejs: mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_nodejs.dir/build.make
 
 .PHONY : mavros_off_board_generate_messages_nodejs

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+messages_str = "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg;/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
 services_str = ""
 pkg_name = "mavros_off_board"
 dependencies_str = "std_msgs"

@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/ahsanbasyar/catkin_ws/build
 include mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_cpp.dir/progress.make
 
 mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_cpp: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/Corners.h
+mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_cpp: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/States.h
 
 
 /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/Corners.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -62,8 +63,15 @@ mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_cpp: /home/ahsanb
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from mavros_off_board/Corners.msg"
 	cd /home/ahsanbasyar/catkin_ws/src/mavros_off_board && /home/ahsanbasyar/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg -Imavros_off_board:/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p mavros_off_board -o /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/States.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/States.h: /home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg
+/home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/States.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from mavros_off_board/States.msg"
+	cd /home/ahsanbasyar/catkin_ws/src/mavros_off_board && /home/ahsanbasyar/catkin_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg -Imavros_off_board:/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p mavros_off_board -o /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board -e /opt/ros/noetic/share/gencpp/cmake/..
+
 mavros_off_board_generate_messages_cpp: mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_cpp
 mavros_off_board_generate_messages_cpp: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/Corners.h
+mavros_off_board_generate_messages_cpp: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/States.h
 mavros_off_board_generate_messages_cpp: mavros_off_board/CMakeFiles/mavros_off_board_generate_messages_cpp.dir/build.make
 
 .PHONY : mavros_off_board_generate_messages_cpp

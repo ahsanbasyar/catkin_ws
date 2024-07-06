@@ -222,9 +222,9 @@ add_executable(corners_detector src/corners_detector.cpp)
 target_link_libraries(corners_detector ${catkin_LIBRARIES} Qt5::Widgets) 
 add_dependencies(corners_detector object_detector_generate_messages_cpp)
 #This scripts computes the center of the image, angle measured with the X axis and the Height and Width of the image
-add_executable(cent_calculator src/cent_calculator.cpp)
-target_link_libraries(cent_calculator ${catkin_LIBRARIES})
-add_dependencies(cent_calculator object_detector_generate_messages_cpp)
+# add_executable(cent_calculator src/cent_calculator.cpp)
+# target_link_libraries(cent_calculator ${catkin_LIBRARIES}cent_calculator)
+# add_dependencies(cent_calculator object_detector_generate_messages_cpp)
 #This scripts is a Kalman filter to do tracking of the variables mentioned
 add_executable(kalman_filter src/kalman_filter.cpp)
 target_link_libraries(kalman_filter ${catkin_LIBRARIES} ${Eigen_LIBRARIES})

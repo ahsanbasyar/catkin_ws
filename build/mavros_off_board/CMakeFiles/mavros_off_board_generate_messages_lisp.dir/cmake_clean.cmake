@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/mavros_off_board/msg/Corners.lisp"
+  "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/mavros_off_board/msg/States.lisp"
   "CMakeFiles/mavros_off_board_generate_messages_lisp"
 )
 

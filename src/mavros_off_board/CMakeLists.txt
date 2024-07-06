@@ -56,6 +56,7 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    Corners.msg
+   States.msg
  )
 
 ## Generate services in the 'srv' folder
@@ -213,3 +214,6 @@ target_link_libraries(path ${catkin_LIBRARIES})
 add_executable(set_offb src/set_offb.cpp)
 target_link_libraries(set_offb ${catkin_LIBRARIES})
 
+add_executable(cent_calculator src/cent_calculator.cpp)
+target_link_libraries(cent_calculator ${catkin_LIBRARIES})
+add_dependencies(cent_calculator mavros_off_board_generate_messages_cpp)

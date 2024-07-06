@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,18 +124,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
 
 # Special rule for the target list_install_components
 list_install_components:
@@ -196,21 +196,6 @@ kalman_filter: object_detector/CMakeFiles/kalman_filter.dir/rule
 kalman_filter/fast:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f object_detector/CMakeFiles/kalman_filter.dir/build.make object_detector/CMakeFiles/kalman_filter.dir/build
 .PHONY : kalman_filter/fast
-
-# Convenience name for target.
-object_detector/CMakeFiles/cent_calculator.dir/rule:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 object_detector/CMakeFiles/cent_calculator.dir/rule
-.PHONY : object_detector/CMakeFiles/cent_calculator.dir/rule
-
-# Convenience name for target.
-cent_calculator: object_detector/CMakeFiles/cent_calculator.dir/rule
-
-.PHONY : cent_calculator
-
-# fast build rule for target.
-cent_calculator/fast:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f object_detector/CMakeFiles/cent_calculator.dir/build.make object_detector/CMakeFiles/cent_calculator.dir/build
-.PHONY : cent_calculator/fast
 
 # Convenience name for target.
 object_detector/CMakeFiles/object_detector_geneus.dir/rule:
@@ -407,33 +392,6 @@ corners_detector/fast:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f object_detector/CMakeFiles/corners_detector.dir/build.make object_detector/CMakeFiles/corners_detector.dir/build
 .PHONY : corners_detector/fast
 
-src/cent_calculator.o: src/cent_calculator.cpp.o
-
-.PHONY : src/cent_calculator.o
-
-# target to build an object file
-src/cent_calculator.cpp.o:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f object_detector/CMakeFiles/cent_calculator.dir/build.make object_detector/CMakeFiles/cent_calculator.dir/src/cent_calculator.cpp.o
-.PHONY : src/cent_calculator.cpp.o
-
-src/cent_calculator.i: src/cent_calculator.cpp.i
-
-.PHONY : src/cent_calculator.i
-
-# target to preprocess a source file
-src/cent_calculator.cpp.i:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f object_detector/CMakeFiles/cent_calculator.dir/build.make object_detector/CMakeFiles/cent_calculator.dir/src/cent_calculator.cpp.i
-.PHONY : src/cent_calculator.cpp.i
-
-src/cent_calculator.s: src/cent_calculator.cpp.s
-
-.PHONY : src/cent_calculator.s
-
-# target to generate assembly for a file
-src/cent_calculator.cpp.s:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f object_detector/CMakeFiles/cent_calculator.dir/build.make object_detector/CMakeFiles/cent_calculator.dir/src/cent_calculator.cpp.s
-.PHONY : src/cent_calculator.cpp.s
-
 src/corners_detector.o: src/corners_detector.cpp.o
 
 .PHONY : src/corners_detector.o
@@ -522,14 +480,13 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
+	@echo "... install/local"
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test"
 	@echo "... plot_estimation"
 	@echo "... kalman_filter"
-	@echo "... install/local"
-	@echo "... cent_calculator"
 	@echo "... object_detector_geneus"
 	@echo "... object_detector_generate_messages_cpp"
 	@echo "... object_detector_gencpp"
@@ -544,9 +501,6 @@ help:
 	@echo "... object_detector_generate_messages_py"
 	@echo "... list_install_components"
 	@echo "... corners_detector"
-	@echo "... src/cent_calculator.o"
-	@echo "... src/cent_calculator.i"
-	@echo "... src/cent_calculator.s"
 	@echo "... src/corners_detector.o"
 	@echo "... src/corners_detector.i"
 	@echo "... src/corners_detector.s"
