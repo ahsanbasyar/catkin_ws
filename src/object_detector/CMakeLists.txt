@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  mavros_off_board
 )
 
 ## https://stackoverflow.com/questions/28252909/cmake-and-qt5-include-only-takes-one-argument
@@ -65,7 +66,7 @@ find_package(OpenCV 4.2 REQUIRED) #Requiero a OpenCV
 ## Generate messages in the 'msg' folder
  add_message_files(
    FILES
-   Corners.msg
+   
    States.msg
  )
 
@@ -121,7 +122,7 @@ find_package(OpenCV 4.2 REQUIRED) #Requiero a OpenCV
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES object_detector
-   CATKIN_DEPENDS roscpp rospy message_runtime std_msgs 
+   CATKIN_DEPENDS roscpp rospy message_runtime std_msgs mavros_off_board
 )
 
 ###########

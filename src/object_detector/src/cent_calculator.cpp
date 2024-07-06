@@ -29,8 +29,9 @@
 
 #include <ros/ros.h>
 #include <find_object_2d/ObjectsStamped.h>
-#include "object_detector/Corners.h" // Custom msg of type Corners
+#include "mavros_off_board/Corners.h" // Custom msg of type Corners
 #include "object_detector/States.h" // Custom msgs of type States
+
 
 # define M_PI   3.14159265358979323846  /* pi */
 
@@ -55,7 +56,7 @@ class States
 		}
 
 		// Subscriber callback
-		void centCalculator(const object_detector::Corners& msg) //Callback para el subscriber "CentCalculator"
+		void centCalculator(const mavros_off_board::Corners& msg) //Callback para el subscriber "CentCalculator"
 		{	
 			// Creation of a States object to publish the info
 			object_detector::States st;

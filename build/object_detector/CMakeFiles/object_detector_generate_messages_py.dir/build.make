@@ -53,29 +53,21 @@ CMAKE_BINARY_DIR = /home/ahsanbasyar/catkin_ws/build
 # Include the progress variables for this target.
 include object_detector/CMakeFiles/object_detector_generate_messages_py.dir/progress.make
 
-object_detector/CMakeFiles/object_detector_generate_messages_py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_Corners.py
 object_detector/CMakeFiles/object_detector_generate_messages_py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_States.py
 object_detector/CMakeFiles/object_detector_generate_messages_py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/__init__.py
 
 
-/home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_Corners.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_Corners.py: /home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG object_detector/Corners"
-	cd /home/ahsanbasyar/catkin_ws/build/object_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg -Iobject_detector:/home/ahsanbasyar/catkin_ws/src/object_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p object_detector -o /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg
-
 /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_States.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_States.py: /home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python from MSG object_detector/States"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG object_detector/States"
 	cd /home/ahsanbasyar/catkin_ws/build/object_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg -Iobject_detector:/home/ahsanbasyar/catkin_ws/src/object_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p object_detector -o /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg
 
 /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
-/home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/__init__.py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_Corners.py
 /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/__init__.py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_States.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for object_detector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for object_detector"
 	cd /home/ahsanbasyar/catkin_ws/build/object_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg --initpy
 
 object_detector_generate_messages_py: object_detector/CMakeFiles/object_detector_generate_messages_py
-object_detector_generate_messages_py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_Corners.py
 object_detector_generate_messages_py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/_States.py
 object_detector_generate_messages_py: /home/ahsanbasyar/catkin_ws/devel/lib/python3/dist-packages/object_detector/msg/__init__.py
 object_detector_generate_messages_py: object_detector/CMakeFiles/object_detector_generate_messages_py.dir/build.make

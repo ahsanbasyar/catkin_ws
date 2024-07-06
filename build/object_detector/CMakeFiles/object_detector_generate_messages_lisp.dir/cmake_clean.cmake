@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/Corners.lisp"
   "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/States.lisp"
   "CMakeFiles/object_detector_generate_messages_lisp"
 )

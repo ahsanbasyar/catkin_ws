@@ -38,10 +38,7 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/object_detector/msg" TYPE FILE FILES
-    "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg"
-    "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
-    )
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/object_detector/msg" TYPE FILE FILES "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

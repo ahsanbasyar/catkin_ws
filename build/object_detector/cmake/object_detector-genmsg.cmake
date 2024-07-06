@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "object_detector: 2 messages, 0 services")
+message(STATUS "object_detector: 1 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iobject_detector:/home/ahsanbasyar/catkin_ws/src/object_detector/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -17,11 +17,6 @@ add_custom_target(object_detector_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" NAME_WE)
-add_custom_target(_object_detector_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "object_detector" "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" ""
-)
-
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" NAME_WE)
 add_custom_target(_object_detector_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "object_detector" "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" ""
@@ -33,12 +28,6 @@ add_custom_target(_object_detector_generate_messages_check_deps_${_filename}
 
 ### Section generating for lang: gencpp
 ### Generating Messages
-_generate_msg_cpp(object_detector
-  "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/object_detector
-)
 _generate_msg_cpp(object_detector
   "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
   "${MSG_I_FLAGS}"
@@ -60,8 +49,6 @@ add_custom_target(object_detector_generate_messages_cpp
 add_dependencies(object_detector_generate_messages object_detector_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" NAME_WE)
-add_dependencies(object_detector_generate_messages_cpp _object_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" NAME_WE)
 add_dependencies(object_detector_generate_messages_cpp _object_detector_generate_messages_check_deps_${_filename})
 
@@ -74,12 +61,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS object_detector_generate_messages_c
 
 ### Section generating for lang: geneus
 ### Generating Messages
-_generate_msg_eus(object_detector
-  "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/object_detector
-)
 _generate_msg_eus(object_detector
   "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
   "${MSG_I_FLAGS}"
@@ -101,8 +82,6 @@ add_custom_target(object_detector_generate_messages_eus
 add_dependencies(object_detector_generate_messages object_detector_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" NAME_WE)
-add_dependencies(object_detector_generate_messages_eus _object_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" NAME_WE)
 add_dependencies(object_detector_generate_messages_eus _object_detector_generate_messages_check_deps_${_filename})
 
@@ -115,12 +94,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS object_detector_generate_messages_e
 
 ### Section generating for lang: genlisp
 ### Generating Messages
-_generate_msg_lisp(object_detector
-  "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/object_detector
-)
 _generate_msg_lisp(object_detector
   "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
   "${MSG_I_FLAGS}"
@@ -142,8 +115,6 @@ add_custom_target(object_detector_generate_messages_lisp
 add_dependencies(object_detector_generate_messages object_detector_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" NAME_WE)
-add_dependencies(object_detector_generate_messages_lisp _object_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" NAME_WE)
 add_dependencies(object_detector_generate_messages_lisp _object_detector_generate_messages_check_deps_${_filename})
 
@@ -156,12 +127,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS object_detector_generate_messages_l
 
 ### Section generating for lang: gennodejs
 ### Generating Messages
-_generate_msg_nodejs(object_detector
-  "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/object_detector
-)
 _generate_msg_nodejs(object_detector
   "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
   "${MSG_I_FLAGS}"
@@ -183,8 +148,6 @@ add_custom_target(object_detector_generate_messages_nodejs
 add_dependencies(object_detector_generate_messages object_detector_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" NAME_WE)
-add_dependencies(object_detector_generate_messages_nodejs _object_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" NAME_WE)
 add_dependencies(object_detector_generate_messages_nodejs _object_detector_generate_messages_check_deps_${_filename})
 
@@ -197,12 +160,6 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS object_detector_generate_messages_n
 
 ### Section generating for lang: genpy
 ### Generating Messages
-_generate_msg_py(object_detector
-  "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/object_detector
-)
 _generate_msg_py(object_detector
   "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
   "${MSG_I_FLAGS}"
@@ -224,8 +181,6 @@ add_custom_target(object_detector_generate_messages_py
 add_dependencies(object_detector_generate_messages object_detector_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg" NAME_WE)
-add_dependencies(object_detector_generate_messages_py _object_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg" NAME_WE)
 add_dependencies(object_detector_generate_messages_py _object_detector_generate_messages_check_deps_${_filename})
 

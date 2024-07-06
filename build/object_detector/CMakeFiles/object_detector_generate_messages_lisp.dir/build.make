@@ -53,22 +53,15 @@ CMAKE_BINARY_DIR = /home/ahsanbasyar/catkin_ws/build
 # Include the progress variables for this target.
 include object_detector/CMakeFiles/object_detector_generate_messages_lisp.dir/progress.make
 
-object_detector/CMakeFiles/object_detector_generate_messages_lisp: /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/Corners.lisp
 object_detector/CMakeFiles/object_detector_generate_messages_lisp: /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/States.lisp
 
 
-/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/Corners.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
-/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/Corners.lisp: /home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from object_detector/Corners.msg"
-	cd /home/ahsanbasyar/catkin_ws/build/object_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg -Iobject_detector:/home/ahsanbasyar/catkin_ws/src/object_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p object_detector -o /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg
-
 /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/States.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/States.lisp: /home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from object_detector/States.msg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ahsanbasyar/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from object_detector/States.msg"
 	cd /home/ahsanbasyar/catkin_ws/build/object_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg -Iobject_detector:/home/ahsanbasyar/catkin_ws/src/object_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p object_detector -o /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg
 
 object_detector_generate_messages_lisp: object_detector/CMakeFiles/object_detector_generate_messages_lisp
-object_detector_generate_messages_lisp: /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/Corners.lisp
 object_detector_generate_messages_lisp: /home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/object_detector/msg/States.lisp
 object_detector_generate_messages_lisp: object_detector/CMakeFiles/object_detector_generate_messages_lisp.dir/build.make
 

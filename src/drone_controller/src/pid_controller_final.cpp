@@ -151,7 +151,7 @@ class Controller
 			pos.header.stamp = ros::Time::now(); // Time header stamp
 			pos.header.frame_id = "base_link"; // "base_link" frame to compute odom
 			pos.type_mask = 1987; // Mask for Vx, Vy, Z pos and Yaw rate
-			pos.position.z = zpos;
+			// pos.position.z = zpos;
 			pos.velocity.x = Vx;
 			pos.velocity.y = Vy;
 			pos.yaw_rate = Vthe;

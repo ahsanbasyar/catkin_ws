@@ -5,4 +5,4 @@ Description: Description of object_detector
 Version: 0.0.0
 Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
-Requires: roscpp rospy message_runtime std_msgs
+Requires: roscpp rospy message_runtime std_msgs mavros_off_board

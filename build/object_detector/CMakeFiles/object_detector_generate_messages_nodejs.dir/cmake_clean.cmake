@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/object_detector/msg/Corners.js"
   "/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/object_detector/msg/States.js"
   "CMakeFiles/object_detector_generate_messages_nodejs"
 )

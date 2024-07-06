@@ -91,9 +91,9 @@ endif()
 # flag project as catkin-based to distinguish if a find_package()-ed project is a catkin project
 set(mavros_off_board_FOUND_CATKIN_PROJECT TRUE)
 
-if(NOT " " STREQUAL " ")
+if(NOT "include " STREQUAL " ")
   set(mavros_off_board_INCLUDE_DIRS "")
-  set(_include_dirs "")
+  set(_include_dirs "include")
   if(NOT " " STREQUAL " ")
     set(_report "Check the issue tracker '' and consider creating a ticket if the problem has not been reported yet.")
   elseif(NOT " " STREQUAL " ")
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/ahsanbasyar/catkin_ws/install/lib;/opt/ros/noetic/lib)
+    foreach(path /home/ahsanbasyar/catkin_ws/install/lib;/home/ahsanbasyar/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
@@ -177,7 +177,7 @@ foreach(library ${libraries})
   endif()
 endforeach()
 
-set(mavros_off_board_EXPORTED_TARGETS "")
+set(mavros_off_board_EXPORTED_TARGETS "mavros_off_board_generate_messages_cpp;mavros_off_board_generate_messages_eus;mavros_off_board_generate_messages_lisp;mavros_off_board_generate_messages_nodejs;mavros_off_board_generate_messages_py")
 # create dummy targets for exported code generation targets to make life of users easier
 foreach(t ${mavros_off_board_EXPORTED_TARGETS})
   if(NOT TARGET ${t})
@@ -214,7 +214,7 @@ foreach(depend ${depends})
   _list_append_deduplicate(mavros_off_board_EXPORTED_TARGETS ${${mavros_off_board_dep}_EXPORTED_TARGETS})
 endforeach()
 
-set(pkg_cfg_extras "")
+set(pkg_cfg_extras "mavros_off_board-msg-extras.cmake")
 foreach(extra ${pkg_cfg_extras})
   if(NOT IS_ABSOLUTE ${extra})
     set(extra ${mavros_off_board_DIR}/${extra})

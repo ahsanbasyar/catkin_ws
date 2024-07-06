@@ -3,6 +3,6 @@ prefix=/home/ahsanbasyar/catkin_ws/devel
 Name: mavros_off_board
 Description: Description of mavros_off_board
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/ahsanbasyar/catkin_ws/devel/include
 Libs: -L${prefix}/lib 
 Requires: geometry_msgs mavros_msgs roscpp rospy std_msgs

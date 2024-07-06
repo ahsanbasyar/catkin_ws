@@ -1,0 +1,11 @@
+
+
+1. Run waypoint
+2. Run camera
+3. if ada patok, run controller
+4. homepos
+
+pertanyaannya
+bisa ga dalam 1 file waypoint, nantinya akan run camera, controller dan if else tidak ada patok, lalu kirim homepos
+
+*controller ada roslaunch terpisah dan akan diselipkan pada program waypoint

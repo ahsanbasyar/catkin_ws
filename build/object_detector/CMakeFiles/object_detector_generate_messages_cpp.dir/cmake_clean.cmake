@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "/home/ahsanbasyar/catkin_ws/devel/include/object_detector/Corners.h"
   "/home/ahsanbasyar/catkin_ws/devel/include/object_detector/States.h"
   "CMakeFiles/object_detector_generate_messages_cpp"
 )

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/Corners.msg;/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
+messages_str = "/home/ahsanbasyar/catkin_ws/src/object_detector/msg/States.msg"
 services_str = ""
 pkg_name = "object_detector"
 dependencies_str = "std_msgs"

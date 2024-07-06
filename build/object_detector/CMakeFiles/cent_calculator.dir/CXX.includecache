@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ahsanbasyar/catkin_ws/devel/include/object_detector/Corners.h
+/home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/Corners.h
 string
 -
 vector
@@ -43,8 +43,8 @@ ros/ros.h
 -
 find_object_2d/ObjectsStamped.h
 -
-object_detector/Corners.h
-/home/ahsanbasyar/catkin_ws/src/object_detector/src/object_detector/Corners.h
+mavros_off_board/Corners.h
+/home/ahsanbasyar/catkin_ws/src/object_detector/src/mavros_off_board/Corners.h
 object_detector/States.h
 /home/ahsanbasyar/catkin_ws/src/object_detector/src/object_detector/States.h
 
