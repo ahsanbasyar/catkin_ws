@@ -6,6 +6,9 @@ mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home
 mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/devel/include/drone_controller/controllerRequest.h
 mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/devel/include/drone_controller/controllerResponse.h
 mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/Marker.h
+mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/Trigger.h
+mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/TriggerRequest.h
+mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/devel/include/mavros_off_board/TriggerResponse.h
 mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /home/ahsanbasyar/catkin_ws/src/mavros_off_board/src/singledroneSoft.cpp
 mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /opt/ros/noetic/include/geometry_msgs/Point.h
 mavros_off_board/CMakeFiles/singledroneSoft.dir/src/singledroneSoft.cpp.o: /opt/ros/noetic/include/geometry_msgs/Pose.h

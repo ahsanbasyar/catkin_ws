@@ -182,13 +182,17 @@ int main(int argc, char** argv) {
     // Delay 3 seconds
     ros::Duration(3.0).sleep();
 
-    ros::ServiceClient client = nh.serviceClient<mavros_off_board::Trigger>("/image_gps_logger_node/trigger_capture");
+    ros::ServiceClient trigger_client = nh.serviceClient<mavros_off_board::Trigger>("/image_gps_logger_node/trigger_capture");
     mavros_off_board::Trigger trg;
     trg.request.trigger = true;
-    if (client.call(trg)) {
-        ROS_INFO("Service call success");
+    if (trigger_client.exists()) {
+        if (trigger_client.call(trg)) {
+            ROS_INFO("Service call success");
+        } else {
+            ROS_ERROR("Failed to call service");
+        }
     } else {
-        ROS_ERROR("Failed to call service");
+        ROS_ERROR("Service '/image_gps_logger_node/trigger_capture' does not exist");
     }
 
     //rosservice, Buatlah sebuah skrip Python untuk mengirimkan permintaan ke layanan TriggerCapture.

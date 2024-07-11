@@ -94,8 +94,8 @@ class Controller
 		Controller(ros::NodeHandle ao_nh) : po_nh(ao_nh)
 		{
 			// PID controllers objects
-			pidx = new PID(0.75, -0.75, 0.005, 0.0008, 0.00005); // max, min, kp, kd, ki
-			pidy = new PID(0.75, -0.75, 0.006, 0.00085, 0.00006);
+			pidx = new PID(0.35, -0.35, 0.005, 0.0008, 0.00005); // max, min, kp, kd, ki
+			pidy = new PID(0.35, -0.35, 0.006, 0.00085, 0.00006);
 			pidth = new PID(0.35, -0.35, 0.004, 0.0005, 0.00001);
 
 			info_pub = po_nh.advertise<drone_controller::Information>("/information", 10);

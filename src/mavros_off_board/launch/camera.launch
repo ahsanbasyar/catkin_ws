@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <launch>
 
-    <node pkg="mavros_off_board" type="camerawithoutblob.py" name="CV"> 
-    </node>
+    <!-- <node pkg="mavros_off_board" type="camerawithoutblob.py" name="CV"> 
+    </node> -->
     <node pkg="mavros_off_board" type="cent_calculator" name="data_calculation">
     </node>
     <node pkg="mavros_off_board" type="kalman_filter.py" name="KF_predictor">

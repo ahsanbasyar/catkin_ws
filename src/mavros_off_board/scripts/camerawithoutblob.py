@@ -18,19 +18,27 @@ from mavros_off_board.msg import Marker
 from drone_controller.msg import Information
 from mavros_off_board.srv import Trigger, TriggerResponse
 
+trigger_active = False
 
 class Drone:
     def __init__(self):
-        rospy.init_node("CV")       
+        rospy.init_node("CV")
         self.bridge = CvBridge()
 
         self.information_sub = rospy.Subscriber("/information", Information, self.information_callback)
-        self.image_sub = rospy.Subscriber("/usb_uav1/image_raw", Image, self.callback_rgb)
+        self.image_sub = rospy.Subscriber("/uav1_cam/image_raw", Image, self.callback_rgb)
         self.imageshow_rgb = np.zeros((320, 240, 3), dtype=np.uint8)
         self.capture = None
         self.pub = rospy.Publisher('/corners', Corners, queue_size=10)
         self.pub_cam = rospy.Publisher('/marker', Marker, queue_size=10)
-    
+        # Service
+        self.trigger_service = rospy.Service('/image_gps_logger_node/trigger_capture', Trigger, self.trigger_callback)
+        rospy.loginfo("Service /image_gps_logger_node/trigger_capture has been started.")
+
+        # Initialize database
+        self.initialize_database("/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/images.db")
+
+        self.capture_done = False  # Initialize the capture_done flag
 
     def information_callback(self, msg):
         information = Information()
@@ -44,6 +52,18 @@ class Drone:
             self.capture = img
         except CvBridgeError as e:
             print(e)
+
+    def trigger_callback(self, req):
+        global trigger_active
+        trigger_active = not trigger_active  # Toggle trigger status
+        self.capture_done = False  # Reset the capture_done flag when trigger is activated
+
+        if trigger_active:
+            rospy.loginfo("Trigger activated.")
+        else:
+            rospy.loginfo("Trigger deactivated.")
+        
+        return TriggerResponse(success=True)
 
     def run(self):
         calib_data_path = "/home/ahsanbasyar/Downloads/MultiMatrix.npz"
@@ -119,15 +139,22 @@ class Drone:
             cv2.imshow('frame', frame)
             key = cv2.waitKey(1) & 0xFF
 
-            if marker.marker == "Marker Found":
-                category = 'base'
-                if marker_IDs:
-                    image_name = f"/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/{category}({marker_IDs[0][0]})_{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.jpg"
-                    print(f'Image saved to {image_name}')
-                    cv2.imwrite(image_name, self.capture)
-                    self.insert_to_database(image_name, category)
+            # if trigger_active and not self.capture_done:
+            #     category = 'base'
 
-            elif key == ord('q'):
+            #     image_name = f"/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/{category}({marker_IDs[0][0]})_{datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.jpg"
+            #     print(f'Image saved to {image_name}')
+            #     cv2.imwrite(image_name, self.capture)
+            #     self.insert_to_database(image_name, category)
+            #     self.capture_done = True  # Set the flag to True after capture
+            if key == ord('1') or key == ord('2'):
+                category = 'base' if key == ord('1') else 'move'
+                image_name = f"/home/ahsanbasyar/catkin_ws/src/mavros_off_board/scripts/images/data/{category}((0){datetime.now().strftime('%Y-%m-%d_%H:%M:%S')}.jpg"
+                print(f'Image copied to {image_name}')
+                cv2.imwrite(image_name, self.capture)
+                self.insert_to_database(image_name, category)
+
+            if key == ord('q'):
                 break
 
             rate.sleep()
@@ -221,3 +248,4 @@ class Drone:
 if __name__ == "__main__":
     drone = Drone()
     drone.run()
+
