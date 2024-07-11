@@ -138,11 +138,11 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/ahsanbasyar/catkin_ws/build/mav_comm/mav_system_msgs/cmake_install.cmake")
   include("/home/ahsanbasyar/catkin_ws/build/mav_comm/mav_msgs/cmake_install.cmake")
   include("/home/ahsanbasyar/catkin_ws/build/mav_comm/mav_planning_msgs/cmake_install.cmake")
-  include("/home/ahsanbasyar/catkin_ws/build/tfmini_ros/cmake_install.cmake")
-  include("/home/ahsanbasyar/catkin_ws/build/mavros_off_board/cmake_install.cmake")
   include("/home/ahsanbasyar/catkin_ws/build/object_detector/cmake_install.cmake")
   include("/home/ahsanbasyar/catkin_ws/build/altitude_controller/cmake_install.cmake")
   include("/home/ahsanbasyar/catkin_ws/build/drone_controller/cmake_install.cmake")
+  include("/home/ahsanbasyar/catkin_ws/build/tfmini_ros/cmake_install.cmake")
+  include("/home/ahsanbasyar/catkin_ws/build/mavros_off_board/cmake_install.cmake")
 
 endif()
 

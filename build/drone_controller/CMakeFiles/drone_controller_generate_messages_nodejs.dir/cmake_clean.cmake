@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/drone_controller/msg/Error.js"
+  "/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/drone_controller/msg/Information.js"
+  "/home/ahsanbasyar/catkin_ws/devel/share/gennodejs/ros/drone_controller/srv/controller.js"
   "CMakeFiles/drone_controller_generate_messages_nodejs"
 )
 

@@ -185,7 +185,7 @@ foreach(t ${object_detector_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "roscpp;rospy;message_runtime;std_msgs;mavros_off_board")
+set(depends "roscpp;rospy;message_runtime;std_msgs")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

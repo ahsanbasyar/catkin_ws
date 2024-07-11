@@ -3,6 +3,8 @@
   (:export
    "<CORNERS>"
    "CORNERS"
+   "<MARKER>"
+   "MARKER"
    "<STATES>"
    "STATES"
   ))

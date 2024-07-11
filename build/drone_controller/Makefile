@@ -228,6 +228,36 @@ proportional_controller/fast:
 .PHONY : proportional_controller/fast
 
 # Convenience name for target.
+drone_controller/CMakeFiles/pid.dir/rule:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/pid.dir/rule
+.PHONY : drone_controller/CMakeFiles/pid.dir/rule
+
+# Convenience name for target.
+pid: drone_controller/CMakeFiles/pid.dir/rule
+
+.PHONY : pid
+
+# fast build rule for target.
+pid/fast:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/pid.dir/build.make drone_controller/CMakeFiles/pid.dir/build
+.PHONY : pid/fast
+
+# Convenience name for target.
+drone_controller/CMakeFiles/drone_controller_genpy.dir/rule:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/drone_controller_genpy.dir/rule
+.PHONY : drone_controller/CMakeFiles/drone_controller_genpy.dir/rule
+
+# Convenience name for target.
+drone_controller_genpy: drone_controller/CMakeFiles/drone_controller_genpy.dir/rule
+
+.PHONY : drone_controller_genpy
+
+# fast build rule for target.
+drone_controller_genpy/fast:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/drone_controller_genpy.dir/build.make drone_controller/CMakeFiles/drone_controller_genpy.dir/build
+.PHONY : drone_controller_genpy/fast
+
+# Convenience name for target.
 drone_controller/CMakeFiles/drone_controller_generate_messages.dir/rule:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/drone_controller_generate_messages.dir/rule
 .PHONY : drone_controller/CMakeFiles/drone_controller_generate_messages.dir/rule
@@ -258,6 +288,21 @@ _drone_controller_generate_messages_check_deps_Error/fast:
 .PHONY : _drone_controller_generate_messages_check_deps_Error/fast
 
 # Convenience name for target.
+drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_Information.dir/rule:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_Information.dir/rule
+.PHONY : drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_Information.dir/rule
+
+# Convenience name for target.
+_drone_controller_generate_messages_check_deps_Information: drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_Information.dir/rule
+
+.PHONY : _drone_controller_generate_messages_check_deps_Information
+
+# fast build rule for target.
+_drone_controller_generate_messages_check_deps_Information/fast:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_Information.dir/build.make drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_Information.dir/build
+.PHONY : _drone_controller_generate_messages_check_deps_Information/fast
+
+# Convenience name for target.
 drone_controller/CMakeFiles/drone_controller_generate_messages_py.dir/rule:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/drone_controller_generate_messages_py.dir/rule
 .PHONY : drone_controller/CMakeFiles/drone_controller_generate_messages_py.dir/rule
@@ -271,6 +316,21 @@ drone_controller_generate_messages_py: drone_controller/CMakeFiles/drone_control
 drone_controller_generate_messages_py/fast:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/drone_controller_generate_messages_py.dir/build.make drone_controller/CMakeFiles/drone_controller_generate_messages_py.dir/build
 .PHONY : drone_controller_generate_messages_py/fast
+
+# Convenience name for target.
+drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_controller.dir/rule:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_controller.dir/rule
+.PHONY : drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_controller.dir/rule
+
+# Convenience name for target.
+_drone_controller_generate_messages_check_deps_controller: drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_controller.dir/rule
+
+.PHONY : _drone_controller_generate_messages_check_deps_controller
+
+# fast build rule for target.
+_drone_controller_generate_messages_check_deps_controller/fast:
+	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_controller.dir/build.make drone_controller/CMakeFiles/_drone_controller_generate_messages_check_deps_controller.dir/build
+.PHONY : _drone_controller_generate_messages_check_deps_controller/fast
 
 # Convenience name for target.
 drone_controller/CMakeFiles/drone_controller_generate_messages_cpp.dir/rule:
@@ -421,36 +481,6 @@ drone_controller_generate_messages_nodejs: drone_controller/CMakeFiles/drone_con
 drone_controller_generate_messages_nodejs/fast:
 	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/drone_controller_generate_messages_nodejs.dir/build.make drone_controller/CMakeFiles/drone_controller_generate_messages_nodejs.dir/build
 .PHONY : drone_controller_generate_messages_nodejs/fast
-
-# Convenience name for target.
-drone_controller/CMakeFiles/drone_controller_genpy.dir/rule:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/drone_controller_genpy.dir/rule
-.PHONY : drone_controller/CMakeFiles/drone_controller_genpy.dir/rule
-
-# Convenience name for target.
-drone_controller_genpy: drone_controller/CMakeFiles/drone_controller_genpy.dir/rule
-
-.PHONY : drone_controller_genpy
-
-# fast build rule for target.
-drone_controller_genpy/fast:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/drone_controller_genpy.dir/build.make drone_controller/CMakeFiles/drone_controller_genpy.dir/build
-.PHONY : drone_controller_genpy/fast
-
-# Convenience name for target.
-drone_controller/CMakeFiles/pid.dir/rule:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 drone_controller/CMakeFiles/pid.dir/rule
-.PHONY : drone_controller/CMakeFiles/pid.dir/rule
-
-# Convenience name for target.
-pid: drone_controller/CMakeFiles/pid.dir/rule
-
-.PHONY : pid
-
-# fast build rule for target.
-pid/fast:
-	cd /home/ahsanbasyar/catkin_ws/build && $(MAKE) -f drone_controller/CMakeFiles/pid.dir/build.make drone_controller/CMakeFiles/pid.dir/build
-.PHONY : pid/fast
 
 src/pid.o: src/pid.cpp.o
 
@@ -655,9 +685,13 @@ help:
 	@echo "... pid_controller_rotate"
 	@echo "... pid_controller_tras"
 	@echo "... proportional_controller"
+	@echo "... pid"
+	@echo "... drone_controller_genpy"
 	@echo "... drone_controller_generate_messages"
 	@echo "... _drone_controller_generate_messages_check_deps_Error"
+	@echo "... _drone_controller_generate_messages_check_deps_Information"
 	@echo "... drone_controller_generate_messages_py"
+	@echo "... _drone_controller_generate_messages_check_deps_controller"
 	@echo "... drone_controller_generate_messages_cpp"
 	@echo "... proportional_rotate"
 	@echo "... drone_controller_gencpp"
@@ -671,8 +705,6 @@ help:
 	@echo "... install"
 	@echo "... drone_controller_generate_messages_lisp"
 	@echo "... drone_controller_generate_messages_nodejs"
-	@echo "... drone_controller_genpy"
-	@echo "... pid"
 	@echo "... src/pid.o"
 	@echo "... src/pid.i"
 	@echo "... src/pid.s"

@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(mavros_off_board)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -17,7 +17,18 @@ find_package(catkin REQUIRED COMPONENTS
   tf
   urdf
   xacro
+  image_transport
+  cv_bridge
+  message_generation
 )
+
+find_package(Qt5 REQUIRED COMPONENTS Core Gui Widgets)
+
+ADD_DEFINITIONS(${QT_DEFINITIONS})
+
+find_package(Eigen3 REQUIRED) #Requiero Eigen 3
+
+find_package(OpenCV 4.2 REQUIRED) #Requiero a OpenCV
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -56,15 +67,16 @@ find_package(catkin REQUIRED COMPONENTS
  add_message_files(
    FILES
    Corners.msg
+   Marker.msg
    States.msg
  )
 
 ## Generate services in the 'srv' folder
-# add_service_files(
-#   FILES
-#   Service1.srv
-#   Service2.srv
-# )
+add_service_files(
+  FILES
+  Trigger.srv
+  # Service2.srv
+)
 
 ## Generate actions in the 'action' folder
 # add_action_files(
@@ -111,7 +123,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES mavros_off_board
-   CATKIN_DEPENDS geometry_msgs mavros_msgs roscpp rospy std_msgs
+   CATKIN_DEPENDS geometry_msgs mavros_msgs roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -124,6 +136,8 @@ catkin_package(
 include_directories(
 # include
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}  # include eigen 3
+  ${OpenCV_INCLUDE_DIRS} # include Open CV
 )
 
 ## Declare a C++ library
@@ -169,6 +183,10 @@ include_directories(
 #   scripts/my_python_script
 #   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+catkin_install_python(PROGRAMS
+scripts/offba_singleSoft.py
+DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 ## Mark executables and/or libraries for installation
 # install(TARGETS ${PROJECT_NAME} ${PROJECT_NAME}_node
@@ -217,3 +235,16 @@ target_link_libraries(set_offb ${catkin_LIBRARIES})
 add_executable(cent_calculator src/cent_calculator.cpp)
 target_link_libraries(cent_calculator ${catkin_LIBRARIES})
 add_dependencies(cent_calculator mavros_off_board_generate_messages_cpp)
+
+add_executable(singledroneSoft src/singledroneSoft.cpp)
+target_link_libraries(singledroneSoft ${catkin_LIBRARIES})
+
+add_executable(plot_estimation src/plot_estimation.cpp)
+target_link_libraries(plot_estimation ${catkin_LIBRARIES} ${OpenCV_LIBS}) 
+add_dependencies(plot_estimation mavros_off_board_generate_messages_cpp)
+
+add_executable(service_client src/service_client.cpp)
+target_link_libraries(service_client ${catkin_LIBRARIES})
+
+add_executable(service_client_deactive src/service_client_deactive.cpp)
+target_link_libraries(service_client_deactive ${catkin_LIBRARIES})

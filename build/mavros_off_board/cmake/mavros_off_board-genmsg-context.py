@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg;/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
-services_str = ""
+messages_str = "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg;/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Marker.msg;/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
+services_str = "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/srv/Trigger.srv"
 pkg_name = "mavros_off_board"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

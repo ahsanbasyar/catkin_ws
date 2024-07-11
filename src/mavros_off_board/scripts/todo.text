@@ -13,6 +13,57 @@ bisa ga dalam 1 file waypoint, nantinya akan run camera, controller dan if else 
 
 notes todo
 
-ubah code cpp to python
-menyatukan code
+#ubah code cpp to python
+#menyatukan code camera
+
+waypoint, camera dan controller masih terpisah!
 aplikasi android
+
+
+
+
+APA ITU MESSAGE GENERATION, MESSAGE RUNTIME>?????>?>?>?>?
+
+
+ROSLAUNCH PID BISA DIGUNAKAN SEKALIGUS DAN SUDAH DIGABUNGKAN. 
+TETAPI JIKA INGIN MELIHAT PARAMETER/PRINT HARUS MENGGUNAKAN TERMINAL BARU AGAR LEBIH BAIK
+
+HAL YANG PERLU DILAKUKAN ADALAH MENGGABUNGKAN WAYPOINT DENGAN AUTO CAPTURE!!!!
+SUDAH DIGABUNGKAN SECARA TERPISAH DALAM 1 lAUNCH FILE
+TETAPI BELOM AUTO
+
+IF = VX < 0.1 OR ERROR < 0.1 PRINT OK
+
+ELSE PRINT NOT FOUND
+
+THEN PUBLISH TO NODE OK
+
+THEN SINGLEDRONESOFT.CPP SUBSCIBE CAMERA AND NODE OK
+THEN CAPTURE THE DATA!!
+
+PID FINAL MASIH DARI object_detector belom mavros_off_board
+
+
+HAL YANG DIRUBAH
+
+XC YC WAITING FOR VALID DATA!
+
+HAL YANG HARUS DIKERJAKANA BESOK 
+MEMBUAT SERVICE CARI TAU
+dari main, aktifin PID
+matiin pid 
+
+
+sinkronus
+asinkronus
+central
+decentral
+
+
+PERLU DIPELAJARI SAAT SIDANG nantinya
+OBJECT TRACKING ATAU PURSUIT OBJECT
+
+
+todo
+upload waypoint
+response lambat karena menambahkan rosrate40 pada program

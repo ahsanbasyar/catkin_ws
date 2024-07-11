@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "/home/ahsanbasyar/catkin_ws/devel/share/roseus/ros/mavros_off_board/manifest.l"
   "/home/ahsanbasyar/catkin_ws/devel/share/roseus/ros/mavros_off_board/msg/Corners.l"
+  "/home/ahsanbasyar/catkin_ws/devel/share/roseus/ros/mavros_off_board/msg/Marker.l"
   "/home/ahsanbasyar/catkin_ws/devel/share/roseus/ros/mavros_off_board/msg/States.l"
+  "/home/ahsanbasyar/catkin_ws/devel/share/roseus/ros/mavros_off_board/srv/Trigger.l"
   "CMakeFiles/mavros_off_board_generate_messages_eus"
 )
 

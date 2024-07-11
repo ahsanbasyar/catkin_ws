@@ -3,5 +3,7 @@
   (:export
    "<ERROR>"
    "ERROR"
+   "<INFORMATION>"
+   "INFORMATION"
   ))
 

@@ -30,12 +30,41 @@
 #include <stdio.h>
 #include <math.h>
 #include "mavros_msgs/PositionTarget.h"
+#include "drone_controller/pid.h"
 #include "object_detector/States.h" // Custom msgs of type States
 #include "drone_controller/Error.h" // Custom msgs of type Error
-#include "drone_controller/pid.h"
-#include <mavros_msgs/CommandTOL.h> // Service for landing
+#include "drone_controller/Information.h"
+#include <mavros_msgs/CommandTOL.h> // Service for landings
+#include <std_msgs/String.h>
+#include "drone_controller/controller.h"
 
-#define FACTORZ  0.025 // Descend Factor
+bool controller_active = false;
+
+bool activateControllerCallback(drone_controller::controller::Request &req,
+						drone_controller::controller::Response &res)
+{
+    // Update the activation state based on the request
+    controller_active = req.activate;
+
+    // Set the response based on success (assuming success for simplicity)
+    res.success = true;
+
+    if (controller_active)
+    {
+        ROS_INFO("Controller activated");
+    }
+    else
+    {
+        ROS_INFO("Controller deactivated");
+    }
+
+    return true;
+}
+
+
+
+
+// #define FACTORZ  0.025 // Descend Factor
 
 class Controller
 {
@@ -45,14 +74,20 @@ class Controller
 		ros::Subscriber sub;
 		ros::Publisher pub;
 		ros::Publisher pub1;
+		ros::Publisher info_pub;
 		ros::Time lastTime;
 		ros::ServiceClient land_client;
+
 		float imageW; // Image Width
         float imageH; // Image Height
         float zini; // Initial height pos
         PID* pidx; // PID objects
         PID* pidy;
         PID* pidth;
+
+		ros::ServiceServer controller_srv;
+		ros::ServiceClient controller_activation_client;
+
 
 	public:
 		// Public class attributes and methods
@@ -62,6 +97,11 @@ class Controller
 			pidx = new PID(0.75, -0.75, 0.005, 0.0008, 0.00005); // max, min, kp, kd, ki
 			pidy = new PID(0.75, -0.75, 0.006, 0.00085, 0.00006);
 			pidth = new PID(0.35, -0.35, 0.004, 0.0005, 0.00001);
+
+			info_pub = po_nh.advertise<drone_controller::Information>("/information", 10);
+			controller_srv = po_nh.advertiseService("/activate_controller", activateControllerCallback);
+			
+			
 			// Publisher type mavros_msgs::PositionTarget, it publishes in /mavros/setpoint_raw/local topic
             pub = po_nh.advertise<mavros_msgs::PositionTarget>("/mavros/setpoint_raw/local",10) ; 
             // Publisher type drone_controller::Error, it publishes in /error topic
@@ -78,6 +118,12 @@ class Controller
 
 		void controllerCallBack(const object_detector::States& msg) //Callback para el subscriber
 		{
+			if (!controller_active)
+			{
+				ROS_INFO("Controller not active. Waiting...");
+				return;
+			}
+
             // Error Calculation between image and template's center
             float ErX = imageW - msg.Xc; // Error in X of the image
             float ErY = imageH - msg.Yc; //Error in Y of the image
@@ -101,11 +147,20 @@ class Controller
 			double timeBetweenMarkers = (ros::Time::now() - lastTime).toSec();
 			lastTime = ros::Time::now();
 
+
+
+			// Publish the information message to topic /information
+
+
+
+			// Continue with your existing logic...
+
 			// If the erroe between width and height is less than 4 pixels and height 
 			// is greater than 0.3
 			if(ErZ < 4.0 && zini > 0.5) 
 			{
-				zpos =  zini - FACTORZ; // Descend Z based on the factor 
+				// zpos =  zini - FACTORZ; // Descend Z based on the factor 
+				zpos =  zini;
 			}
 			else
 			{
@@ -114,25 +169,25 @@ class Controller
 
 			// Drone service for automatic langind when it reaches an specific altitude
 			// and centroid conditions
-			if(zpos <= 0.5 &&  abs(imageW - msg.Xc) < 20 && abs(imageH - msg.Yc) < 20 )
-			{
-				mavros_msgs::CommandTOL land_cmd; // Set all the descend parameters to Zero
-				land_cmd.request.yaw = 0;
-				land_cmd.request.latitude = 0;
-				land_cmd.request.longitude = 0;
-				land_cmd.request.altitude = 0;
+			// if(zpos <= 0.5 &&  abs(imageW - msg.Xc) < 20 && abs(imageH - msg.Yc) < 20 )
+			// {
+			// 	mavros_msgs::CommandTOL land_cmd; // Set all the descend parameters to Zero
+			// 	land_cmd.request.yaw = 0;
+			// 	land_cmd.request.latitude = 0;
+			// 	land_cmd.request.longitude = 0;
+			// 	land_cmd.request.altitude = 0;
 
-				//When it lands, everything goes to zero
-				if (!(land_client.call(land_cmd) && land_cmd.response.success))
-				{
-					// Publish the service of landing
-					ROS_INFO("Landing");
-					// Print final Error
-					printf("Error at Vx, Vy, Theta and Z are (%f,%f,%f,%f) \n", er.errorX, er.errorY, er.errorT, er.errorS);
-					pub1.publish(er);
-					ros::shutdown(); // Shutdowm the node
-				}
-			}
+			// 	//When it lands, everything goes to zero
+			// 	if (!(land_client.call(land_cmd) && land_cmd.response.success))
+			// 	{
+			// 		// Publish the service of landing
+			// 		ROS_INFO("Landing");
+			// 		// Print final Error
+			// 		printf("Error at Vx, Vy, Theta and Z are (%f,%f,%f,%f) \n", er.errorX, er.errorY, er.errorT, er.errorS);
+			// 		pub1.publish(er);
+			// 		ros::shutdown(); // Shutdowm the node
+			// 	}
+			// }
 
 			// Update vehicle's position
             zini = zpos; 
@@ -151,7 +206,7 @@ class Controller
 			pos.header.stamp = ros::Time::now(); // Time header stamp
 			pos.header.frame_id = "base_link"; // "base_link" frame to compute odom
 			pos.type_mask = 1987; // Mask for Vx, Vy, Z pos and Yaw rate
-			// pos.position.z = zpos;
+			pos.position.z = zpos;
 			pos.velocity.x = Vx;
 			pos.velocity.y = Vy;
 			pos.yaw_rate = Vthe;
@@ -161,9 +216,19 @@ class Controller
 
 			printf("Error at Vx, Vy, Theta and Z are (%f,%f,%f,%f) \n", ErX, ErY, ErTheta, ErZ);
 			pub1.publish(er);
-		}
 
-};
+			std_msgs::String informationMsg;
+			if (Vx < 0.01 && Vy < 0.01) {
+				informationMsg.data = "Drone Diam";
+			} else {
+				informationMsg.data = "Drone Bergerak";
+			}
+
+			info_pub.publish(informationMsg);
+
+					}
+
+			};
 
 
 int main(int argc, char** argv)

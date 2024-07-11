@@ -1,0 +1,19 @@
+<launch>
+    <node pkg="mavros_off_board" type="offba_singleSoft.py" name="singleDroneSoft" required="true" output="screen" >
+	</node>
+    
+    <!-- <node pkg="drone_controller" type="pid_controller_final" name="controller_node" required="true" output="screen" >
+	</node>	 -->
+
+    <!-- <include file="$(find mavros)/launch/node.launch">
+
+        <arg name="config_yaml" value="$(find mavros)/launch/px4_config.yaml" />
+        <arg name="pluginlists_yaml" value="$(find mavros)/launch/px4_pluginlists.yaml"/>
+
+        <arg name="fcu_url" value="/dev/ttyACM0:57600" />
+        <arg name="gcs_url" default="udp://:14560@127.0.0.1:14550" />
+        <arg name="tgt_system" default="1" />
+        <arg name="tgt_component" default="1" />
+
+    </include> -->
+</launch>

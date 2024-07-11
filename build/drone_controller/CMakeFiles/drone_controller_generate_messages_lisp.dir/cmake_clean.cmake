@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/drone_controller/msg/Error.lisp"
+  "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/drone_controller/msg/Information.lisp"
+  "/home/ahsanbasyar/catkin_ws/devel/share/common-lisp/ros/drone_controller/srv/controller.lisp"
   "CMakeFiles/drone_controller_generate_messages_lisp"
 )
 

@@ -1,0 +1,3 @@
+bool activate  # Whether to activate or deactivate the controller
+---
+bool success  # Indicate if the operation was successful

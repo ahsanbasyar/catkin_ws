@@ -5,7 +5,7 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
 import numpy as np
-from mavros_off_board.msg import States
+from object_detector.msg import States
 
 class Drawer:
     def __init__(self):
@@ -41,21 +41,27 @@ class Drawer:
         measurement = self.data
 
         pt = (int(measurement[0]), int(measurement[1]))
-        size = (measurement[2], measurement[3])
+        size = (int(measurement[2]), int(measurement[3]))
         angle = measurement[4]
 
+        # Create a rotated rectangle
         rRect = ((pt[0], pt[1]), (size[0], size[1]), angle)
 
-        box = cv2.boxPoints(rRect)
-        box = np.int0(box)
+        # Get the four corners of the rotated rectangle
+        vertices = cv2.boxPoints(rRect)
+        vertices = np.intp(vertices)
 
-        cv2.drawContours(img, [box], 0, (0, 255, 0), 2)
+        # Draw the lines of the rectangle
+        for i in range(4):
+            cv2.line(img, tuple(vertices[i]), tuple(vertices[(i + 1) % 4]), (0, 255, 0), 2)
 
-        cv2.circle(img, tuple(box[0]), 5, (255, 0, 255), -1)
-        cv2.circle(img, tuple(box[1]), 5, (0, 0, 255), -1)
-        cv2.circle(img, tuple(box[2]), 5, (255, 0, 0), -1)
-        cv2.circle(img, tuple(box[3]), 5, (0, 255, 0), -1)
+        # Draw a point in each vertex
+        cv2.circle(img, tuple(vertices[0]), 5, (255, 0, 255), -1)
+        cv2.circle(img, tuple(vertices[1]), 5, (0, 0, 255), -1)
+        cv2.circle(img, tuple(vertices[2]), 5, (255, 0, 0), -1)
+        cv2.circle(img, tuple(vertices[3]), 5, (0, 255, 0), -1)
 
+        # Show the image
         cv2.imshow("Estimation", img)
         cv2.waitKey(3)
 

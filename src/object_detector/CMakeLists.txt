@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
-  mavros_off_board
+  
 )
 
 ## https://stackoverflow.com/questions/28252909/cmake-and-qt5-include-only-takes-one-argument
@@ -122,7 +122,7 @@ find_package(OpenCV 4.2 REQUIRED) #Requiero a OpenCV
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES object_detector
-   CATKIN_DEPENDS roscpp rospy message_runtime std_msgs mavros_off_board
+   CATKIN_DEPENDS roscpp rospy message_runtime std_msgs 
 )
 
 ###########
@@ -230,6 +230,6 @@ add_executable(kalman_filter src/kalman_filter.cpp)
 target_link_libraries(kalman_filter ${catkin_LIBRARIES} ${Eigen_LIBRARIES})
 add_dependencies(kalman_filter object_detector_generate_messages_cpp)
 #This scripts is optional and plot the result of the tracking system
-add_executable(plot_estimation src/plot_estimation.cpp)
-target_link_libraries(plot_estimation ${catkin_LIBRARIES} ${OpenCV_LIBS}) 
-add_dependencies(plot_estimation object_detector_generate_messages_cpp)
+# add_executable(plot_estimation src/plot_estimation.cpp)
+# target_link_libraries(plot_estimation ${catkin_LIBRARIES} ${OpenCV_LIBS}) 
+# add_dependencies(plot_estimation object_detector_generate_messages_cpp)

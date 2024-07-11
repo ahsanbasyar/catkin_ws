@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
-services_str = ""
+messages_str = "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg;/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
+services_str = "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv"
 pkg_name = "drone_controller"
 dependencies_str = "geometry_msgs;mavros_msgs;std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

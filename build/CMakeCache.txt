@@ -483,6 +483,8 @@ diagnostic_updater_DIR:PATH=/opt/ros/noetic/share/diagnostic_updater/cmake
 //Value Computed by CMake
 drone_controller_BINARY_DIR:STATIC=/home/ahsanbasyar/catkin_ws/build/drone_controller
 
+drone_controller_DIR:PATH=
+
 //Value Computed by CMake
 drone_controller_SOURCE_DIR:STATIC=/home/ahsanbasyar/catkin_ws/src/drone_controller
 
@@ -587,7 +589,7 @@ interactive_markers_DIR:PATH=/opt/ros/noetic/share/interactive_markers/cmake
 laser_geometry_DIR:PATH=/opt/ros/noetic/share/laser_geometry/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
+lib:FILEPATH=/opt/ros/noetic/lib/libcv_bridge.so
 
 //The directory containing a CMake configuration file for libmavconn.
 libmavconn_DIR:PATH=/opt/ros/noetic/share/libmavconn/cmake
@@ -649,8 +651,7 @@ mavros_msgs_DIR:PATH=/opt/ros/noetic/share/mavros_msgs/cmake
 //Value Computed by CMake
 mavros_off_board_BINARY_DIR:STATIC=/home/ahsanbasyar/catkin_ws/build/mavros_off_board
 
-//The directory containing a CMake configuration file for mavros_off_board.
-mavros_off_board_DIR:PATH=/home/ahsanbasyar/catkin_ws/devel/share/mavros_off_board/cmake
+mavros_off_board_DIR:PATH=
 
 //Value Computed by CMake
 mavros_off_board_SOURCE_DIR:STATIC=/home/ahsanbasyar/catkin_ws/src/mavros_off_board

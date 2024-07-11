@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import rospy
-from mavros_msgs.msg import State, CommandBool, CommandTOL, SetMode
-from mavros_msgs.srv import CommandBoolRequest, CommandTOLRequest, SetModeRequest
-from geometry_msgs.msg import PoseStamped, TwistStamped
+from mavros_msgs.msg import State
+from mavros_msgs.srv import CommandBool, CommandTOL, SetMode, CommandBoolRequest, SetModeRequest, CommandTOLRequest
+from geometry_msgs.msg import PoseStamped
 from sensor_msgs.msg import NavSatFix
 
 FLIGHT_ALTITUDE = 3

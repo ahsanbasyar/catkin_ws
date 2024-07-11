@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <launch>
 
-    
-    <arg name="pad" default="$(find mavros_off_board)/template"/>
-
     <node pkg="mavros_off_board" type="camerawithoutblob.py" name="CV"> 
     </node>
     <node pkg="mavros_off_board" type="cent_calculator" name="data_calculation">
     </node>
     <node pkg="mavros_off_board" type="kalman_filter.py" name="KF_predictor">
     </node>
-    <node pkg="mavros_off_board" type="plot_estimation.py" name="Rectangle_Detector">
+    <node pkg="mavros_off_board" type="plot_estimation" name="Rectangle_Detector">
     </node> 
 
 </launch>

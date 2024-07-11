@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "drone_controller: 1 messages, 0 services")
+message(STATUS "drone_controller: 2 messages, 1 services")
 
 set(MSG_I_FLAGS "-Idrone_controller:/home/ahsanbasyar/catkin_ws/src/drone_controller/msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg;-Imavros_msgs:/opt/ros/noetic/share/mavros_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeographic_msgs:/opt/ros/noetic/share/geographic_msgs/cmake/../msg;-Isensor_msgs:/opt/ros/noetic/share/sensor_msgs/cmake/../msg;-Iuuid_msgs:/opt/ros/noetic/share/uuid_msgs/cmake/../msg")
 
@@ -17,9 +17,19 @@ add_custom_target(drone_controller_generate_messages ALL)
 
 
 
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" NAME_WE)
+add_custom_target(_drone_controller_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drone_controller" "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" ""
+)
+
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" NAME_WE)
 add_custom_target(_drone_controller_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drone_controller" "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" ""
+)
+
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" NAME_WE)
+add_custom_target(_drone_controller_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "drone_controller" "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" ""
 )
 
 #
@@ -29,6 +39,12 @@ add_custom_target(_drone_controller_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drone_controller
+)
+_generate_msg_cpp(drone_controller
   "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -36,6 +52,12 @@ _generate_msg_cpp(drone_controller
 )
 
 ### Generating Services
+_generate_srv_cpp(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/drone_controller
+)
 
 ### Generating Module File
 _generate_module_cpp(drone_controller
@@ -49,7 +71,11 @@ add_custom_target(drone_controller_generate_messages_cpp
 add_dependencies(drone_controller_generate_messages drone_controller_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_cpp _drone_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_cpp _drone_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" NAME_WE)
 add_dependencies(drone_controller_generate_messages_cpp _drone_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -62,6 +88,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drone_controller_generate_messages_
 ### Section generating for lang: geneus
 ### Generating Messages
 _generate_msg_eus(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drone_controller
+)
+_generate_msg_eus(drone_controller
   "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -69,6 +101,12 @@ _generate_msg_eus(drone_controller
 )
 
 ### Generating Services
+_generate_srv_eus(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/drone_controller
+)
 
 ### Generating Module File
 _generate_module_eus(drone_controller
@@ -82,7 +120,11 @@ add_custom_target(drone_controller_generate_messages_eus
 add_dependencies(drone_controller_generate_messages drone_controller_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_eus _drone_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_eus _drone_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" NAME_WE)
 add_dependencies(drone_controller_generate_messages_eus _drone_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -95,6 +137,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drone_controller_generate_messages_
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drone_controller
+)
+_generate_msg_lisp(drone_controller
   "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -102,6 +150,12 @@ _generate_msg_lisp(drone_controller
 )
 
 ### Generating Services
+_generate_srv_lisp(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/drone_controller
+)
 
 ### Generating Module File
 _generate_module_lisp(drone_controller
@@ -115,7 +169,11 @@ add_custom_target(drone_controller_generate_messages_lisp
 add_dependencies(drone_controller_generate_messages drone_controller_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_lisp _drone_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_lisp _drone_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" NAME_WE)
 add_dependencies(drone_controller_generate_messages_lisp _drone_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -128,6 +186,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drone_controller_generate_messages_
 ### Section generating for lang: gennodejs
 ### Generating Messages
 _generate_msg_nodejs(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drone_controller
+)
+_generate_msg_nodejs(drone_controller
   "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -135,6 +199,12 @@ _generate_msg_nodejs(drone_controller
 )
 
 ### Generating Services
+_generate_srv_nodejs(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/drone_controller
+)
 
 ### Generating Module File
 _generate_module_nodejs(drone_controller
@@ -148,7 +218,11 @@ add_custom_target(drone_controller_generate_messages_nodejs
 add_dependencies(drone_controller_generate_messages drone_controller_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_nodejs _drone_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_nodejs _drone_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" NAME_WE)
 add_dependencies(drone_controller_generate_messages_nodejs _drone_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -161,6 +235,12 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS drone_controller_generate_messages_
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drone_controller
+)
+_generate_msg_py(drone_controller
   "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
   "${MSG_I_FLAGS}"
   ""
@@ -168,6 +248,12 @@ _generate_msg_py(drone_controller
 )
 
 ### Generating Services
+_generate_srv_py(drone_controller
+  "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/drone_controller
+)
 
 ### Generating Module File
 _generate_module_py(drone_controller
@@ -181,7 +267,11 @@ add_custom_target(drone_controller_generate_messages_py
 add_dependencies(drone_controller_generate_messages drone_controller_generate_messages_py)
 
 # add dependencies to all check dependencies targets
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_py _drone_controller_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg" NAME_WE)
+add_dependencies(drone_controller_generate_messages_py _drone_controller_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv" NAME_WE)
 add_dependencies(drone_controller_generate_messages_py _drone_controller_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
   "/home/ahsanbasyar/catkin_ws/devel/include/drone_controller/Error.h"
+  "/home/ahsanbasyar/catkin_ws/devel/include/drone_controller/Information.h"
+  "/home/ahsanbasyar/catkin_ws/devel/include/drone_controller/controller.h"
   "CMakeFiles/drone_controller_generate_messages_cpp"
 )
 

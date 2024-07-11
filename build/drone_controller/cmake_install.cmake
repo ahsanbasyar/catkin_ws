@@ -38,7 +38,14 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/drone_controller/msg" TYPE FILE FILES "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/drone_controller/msg" TYPE FILE FILES
+    "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Information.msg"
+    "/home/ahsanbasyar/catkin_ws/src/drone_controller/msg/Error.msg"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/drone_controller/srv" TYPE FILE FILES "/home/ahsanbasyar/catkin_ws/src/drone_controller/srv/controller.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)

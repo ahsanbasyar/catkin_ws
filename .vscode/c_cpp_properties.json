@@ -1,27 +1,40 @@
 {
-  "configurations": [
-    {
-      "browse": {
-        "databaseFilename": "${default}",
-        "limitSymbolsToIncludedHeaders": false
-      },
-      "includePath": [
-        "/home/ahsanbasyar/ta_ws/devel/include/**",
-        "/opt/ros/noetic/include/**",
-        "/home/ahsanbasyar/catkin_ws/devel/include/**",
-        "/home/ahsanbasyar/catkin_ws/src/altitude_controller/include/**",
-        "/home/ahsanbasyar/ta_ws/src/drone_controller/include/**",
-        "/home/ahsanbasyar/catkin_ws/src/mav_comm/mav_msgs/include/**",
-        "/home/ahsanbasyar/catkin_ws/src/mav_comm/mav_planning_msgs/include/**",
-        "/home/ahsanbasyar/catkin_ws/src/tfmini_ros/include/**",
-        "/usr/include/**"
-      ],
-      "name": "ROS",
-      "intelliSenseMode": "gcc-x64",
-      "compilerPath": "/usr/bin/gcc",
-      "cStandard": "gnu11",
-      "cppStandard": "c++14"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "browse": {
+                "databaseFilename": "${default}",
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "includePath": [
+                "/home/ahsanbasyar/catkin_ws/devel/include/**",
+                "/opt/ros/noetic/include/**",
+                "/home/ahsanbasyar/catkin_ws/devel/include/**",
+                "/home/ahsanbasyar/catkin_ws/src/altitude_controller/include/**",
+                "/home/ahsanbasyar/catkin_ws/src/drone_controller/include/**",
+                "/home/ahsanbasyar/catkin_ws/src/mav_comm/mav_msgs/include/**",
+                "/home/ahsanbasyar/catkin_ws/src/mav_comm/mav_planning_msgs/include/**",
+                "/home/ahsanbasyar/catkin_ws/src/tfmini_ros/include/**",
+                "/usr/include/**",
+                "${workspaceFolder}/src/drone_controller/include",
+                "${workspaceFolder}/devel/include"
+            ],
+            "name": "ROS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "gnu11",
+            "cppStandard": "c++14"
+        },
+        {
+            "name": "catkin_ws",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
 }

@@ -40,8 +40,13 @@ endif()
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavros_off_board/msg" TYPE FILE FILES
     "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Corners.msg"
+    "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/Marker.msg"
     "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/msg/States.msg"
     )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavros_off_board/srv" TYPE FILE FILES "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/srv/Trigger.srv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -89,5 +94,9 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mavros_off_board" TYPE FILE FILES "/home/ahsanbasyar/catkin_ws/src/mavros_off_board/package.xml")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/mavros_off_board" TYPE PROGRAM FILES "/home/ahsanbasyar/catkin_ws/build/mavros_off_board/catkin_generated/installspace/offba_singleSoft.py")
 endif()
 
